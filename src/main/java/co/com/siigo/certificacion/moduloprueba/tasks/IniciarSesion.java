@@ -2,6 +2,7 @@ package co.com.siigo.certificacion.moduloprueba.tasks;
 
 import co.com.siigo.certificacion.moduloprueba.userinterfaces.InicioSesionUI;
 import co.com.siigo.certificacion.moduloprueba.userinterfaces.MenuPrincipalUI;
+import co.com.siigo.certificacion.moduloprueba.utils.Constantes;
 import co.com.siigo.certificacion.moduloprueba.utils.Util;
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
@@ -23,14 +24,12 @@ public class IniciarSesion implements Task {
         t.attemptsTo(
                 WaitUntil.the(InicioSesionUI.NOMBRE_SHADOW_CORREO, WebElementStateMatchers.isEnabled()).forNoMoreThan(10).seconds()
         );
-        util.escribirShadow("admin@siigoautomationqa.com", "#username", "#username-input");
-        util.escribirShadow("(#T0Nu@QrO","#current-password", "#password-input");
+        util.escribirShadow(Constantes.usuario, "#username", "#username-input");
+        util.escribirShadow(Constantes.clave,"#current-password", "#password-input");
         t.attemptsTo(
                 Click.on(InicioSesionUI.BTN_INICIAR_SESION)
         );
 
-        util.clickParaElementoDentroDeShadow(MenuPrincipalUI.BTN_CREAR);
-        util.clickParaElementoDentroDeShadow(MenuPrincipalUI.LBL_CREAR_CLIENTE);
-        System.out.println("LLEGÓ");
+
     }
 }

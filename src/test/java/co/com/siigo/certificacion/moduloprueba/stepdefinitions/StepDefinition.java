@@ -1,6 +1,7 @@
 package co.com.siigo.certificacion.moduloprueba.stepdefinitions;
 
 import co.com.siigo.certificacion.moduloprueba.tasks.IniciarSesion;
+import co.com.siigo.certificacion.moduloprueba.tasks.MenuPrincipal;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.es.Cuando;
@@ -26,7 +27,7 @@ public class StepDefinition {
 
     @Cuando("Estoy en el menu de clientes")
     public void estoyEnElMenuDeClientes() {
-        
+        OnStage.theActorInTheSpotlight().attemptsTo(MenuPrincipal.clientes());
     }
 
     @Y("Diligencio el formulario con lo siguiente")
